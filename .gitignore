@@ -1,5 +1,5 @@
 # to exclude Projects
-06_Projects/
+# 06_Projects/
 
 # to exclude Obsidian's settings (CSSスニペットだけは無視しない)
 #.obsidian/*
