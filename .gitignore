@@ -1,0 +1,18 @@
+# to exclude Projects
+06_Projects/
+
+# to exclude Obsidian's settings (CSSスニペットだけは無視しない)
+#.obsidian/*
+#!snippets
+
+# OR only to exclude workspace cache
+data.json
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/*-plugins.json
+.obsidian/plugins/obsidian-excalidraw-plugin/data.json
+.obsidian/appearance.json
+
+# Add below lines to exclude OS settings and caches
+.trash/
+.DS_Store

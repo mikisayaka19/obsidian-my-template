@@ -1,0 +1,2148 @@
+/* Panel styles */
+.widget-board-panel-custom {
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    border-left: 1px solid var(--divider-color);
+    color: var(--text-normal);
+    background-color: var(--background-primary);
+    box-shadow: -4px 0 12px rgba(0,0,0,.15);
+    box-sizing: border-box !important;
+    position: fixed !important;
+    top: 0 !important;
+    height: 100vh !important;
+    min-height: 0 !important;
+    border-radius: 0 !important;
+    margin: 0 0 0 auto;
+    opacity: 0;
+    transition:
+      transform 0.35s cubic-bezier(.4,0,.2,1),
+      opacity 0.2s cubic-bezier(.4,0,.2,1);
+    z-index: 10;
+    will-change: transform, opacity;
+}
+.widget-board-panel-custom > * {
+    flex: 1 1 0 !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+    display: flex;
+    flex-direction: column;
+}
+.widget-board-panel-custom.mode-right-third {
+    width: 33.33vw !important;
+    right: 0 !important;
+    transform: translateX(100%);
+    opacity: 0;
+}
+.widget-board-panel-custom.mode-right-third.is-open {
+    transform: translateX(0);
+    opacity: 1;
+}
+.widget-board-panel-custom.mode-right-half {
+    width: 50vw !important;
+    right: 0 !important;
+    transform: translateX(100%);
+    opacity: 0;
+}
+.widget-board-panel-custom.mode-right-half.is-open {
+    transform: translateX(0);
+    opacity: 1;
+}
+.widget-board-panel-custom.mode-right-two-third {
+    width: 66.66vw !important;
+    right: 0 !important;
+    transform: translateX(100%);
+    opacity: 0;
+}
+.widget-board-panel-custom.mode-right-two-third.is-open {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* 左からスライドイン */
+.widget-board-panel-custom.mode-left-third {
+    width: 33.33vw !important;
+    left: 0 !important;
+    transform: translateX(-100%);
+    opacity: 0;
+}
+.widget-board-panel-custom.mode-left-third.is-open {
+    transform: translateX(0);
+    opacity: 1;
+}
+.widget-board-panel-custom.mode-left-half {
+    width: 50vw !important;
+    left: 0 !important;
+    transform: translateX(-100%);
+    opacity: 0;
+}
+.widget-board-panel-custom.mode-left-half.is-open {
+    transform: translateX(0);
+    opacity: 1;
+}
+.widget-board-panel-custom.mode-left-two-third {
+    width: 66.66vw !important;
+    left: 0 !important;
+    transform: translateX(-100%);
+    opacity: 0;
+}
+.widget-board-panel-custom.mode-left-two-third.is-open {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* 中央から下にスライドイン */
+.widget-board-panel-custom.mode-center-half {
+    width: 50vw !important;
+    left: 50% !important;
+    top: 0 !important;
+    transform: translate(-50%, 100%);
+    opacity: 0;
+}
+.widget-board-panel-custom.mode-center-half.is-open {
+    transform: translate(-50%, 0);
+    opacity: 1;
+}
+.widget-board-panel-custom.mode-center-third {
+    width: 33.33vw !important;
+    left: 50% !important;
+    top: 0 !important;
+    transform: translate(-50%, 100%);
+    opacity: 0;
+}
+.widget-board-panel-custom.mode-center-third.is-open {
+    transform: translate(-50%, 0);
+    opacity: 1;
+}
+
+/* カスタム幅モード（右基準） */
+.widget-board-panel-custom.custom-width-right {
+    right: 0 !important;
+    top: 0 !important;
+    width: var(--custom-width, 40vw);
+    transform: translateX(100%);
+    opacity: 0;
+}
+.widget-board-panel-custom.custom-width-right.is-open {
+    transform: translateX(0);
+    opacity: 1;
+}
+/* カスタム幅モード（左基準） */
+.widget-board-panel-custom.custom-width-left {
+    left: 0 !important;
+    top: 0 !important;
+    width: var(--custom-width, 40vw);
+    transform: translateX(-100%);
+    opacity: 0;
+}
+.widget-board-panel-custom.custom-width-left.is-open {
+    transform: translateX(0);
+    opacity: 1;
+}
+/* カスタム幅モード（中央基準） */
+.widget-board-panel-custom.custom-width-center {
+    left: 50% !important;
+    top: 0 !important;
+    width: var(--custom-width, 40vw);
+    transform: translate(-50%, 100%);
+    opacity: 0;
+}
+.widget-board-panel-custom.custom-width-center.is-open {
+    transform: translate(-50%, 0);
+    opacity: 1;
+}
+
+/* Panel Header and Controls */
+.wb-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: var(--background-secondary);
+    border-bottom: 1px solid var(--divider-color);
+    flex-shrink: 0;
+}
+.wb-panel-header h3 {
+    margin: 0 0 4px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-normal);
+    padding: 0;
+}
+.wb-panel-controls {
+    display: none;
+}
+.wb-panel-controls.is-visible {
+    display: block;
+}
+.wb-panel-controls-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+    background: var(--background-secondary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 5px;
+    padding: 4px 10px;
+    cursor: pointer;
+    color: var(--text-normal);
+    font-size: 13px;
+    transition: background 0.2s, border 0.2s;
+}
+.wb-panel-controls-toggle:hover {
+    background: var(--background-secondary-alt);
+}
+.wb-panel-controls p {
+    margin: 0 8px 0 0;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+.wb-panel-controls button {
+    padding: 6px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    border: 1px solid var(--background-modifier-border);
+    background-color: var(--interactive-normal);
+    color: var(--text-on-accent);
+    border-radius: 5px;
+    transition: background-color .2s, border-color .2s;
+}
+.wb-panel-controls button:hover { background-color: var(--interactive-hover); }
+.wb-panel-controls button.active { background-color: var(--interactive-accent); border-color: var(--interactive-accent-hover); color: var(--text-on-accent); }
+
+/* Widget Container and General Widget Styling */
+.wb-widget-container {
+    flex: 1 1 0 !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+    overflow-y: auto !important;
+    padding: 15px;
+    background-color: var(--background-primary);
+}
+.wb-widget-container.is-editing {
+    flex: 1 1 0 !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+    overflow-y: auto !important;
+    display: flex;
+    flex-direction: column;
+}
+.widget {
+    background-color: var(--background-secondary);
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    border: 1px solid var(--background-modifier-border);
+    box-shadow: var(--shadow-s);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+.widget h4 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-normal);
+    text-align: center;
+}
+.widget h4:empty {
+    display: none; /* タイトルが空の場合は非表示 */
+}
+.widget .widget-content {
+    font-size: var(--font-ui-normal);
+    color: var(--text-normal);
+    line-height: 1.5;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.widget.has-background-image::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay darkness */
+    border-radius: inherit;
+    z-index: 0;
+}
+.widget.has-background-image > * {
+    position: relative;
+    z-index: 1; /* Content on top of overlay */
+}
+.widget-error p, .widget-unknown p { margin-top: 5px; }
+
+
+/* Pomodoro Timer Widget Specific Styles */
+.pomodoro-timer-widget .widget-content { align-items: center; justify-content: center; }
+.pomodoro-time-display { font-size: clamp(2.5em, 8vw, 4em); font-weight: bold; margin: 10px 0; }
+.pomodoro-status-display { font-size: clamp(1em, 4vw, 1.3em); margin-bottom: 8px; font-weight: 500; color:var(--text-accent); }
+.pomodoro-cycle-display { font-size: clamp(0.8em, 3vw, 1em); margin-bottom: 15px; color:var(--text-muted); }
+.pomodoro-controls { display: flex; gap: 10px; margin-top: 10px; }
+.pomodoro-controls button { background-color: var(--interactive-normal); color: var(--text-on-accent); border: none; padding: 8px 12px; border-radius: var(--radius-s, 5px); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background-color 0.15s ease-in-out; }
+.pomodoro-controls button > .svg-icon { margin-right: 0; }
+.pomodoro-controls button:hover { background-color: var(--interactive-hover); }
+
+/* Pomodoro with Background Image Text/Control Adjustments */
+.pomodoro-timer-widget.has-background-image h4,
+.pomodoro-timer-widget.has-background-image .pomodoro-time-display { color: #f0f0f0 !important; text-shadow: 0 1px 4px rgba(0,0,0,0.7), 0 2px 6px rgba(0,0,0,0.5); }
+.pomodoro-timer-widget.has-background-image .pomodoro-status-display { color: #a8d8ff !important; text-shadow: 0 1px 3px rgba(0,0,0,0.7); }
+.pomodoro-timer-widget.has-background-image .pomodoro-cycle-display { color: #cccccc !important; text-shadow: 0 1px 3px rgba(0,0,0,0.7); }
+.pomodoro-timer-widget.has-background-image .pomodoro-controls button { background-color: rgba(70, 70, 70, 0.65) !important; color: #f0f0f0 !important; border: 1px solid rgba(220, 220, 220, 0.4) !important; }
+.pomodoro-timer-widget.has-background-image .pomodoro-controls button:hover { background-color: rgba(90, 90, 90, 0.75) !important; }
+.pomodoro-timer-widget.has-background-image .pomodoro-controls button > .svg-icon { color: #f0f0f0 !important; }
+
+/* Pomodoro Memo Styles (Shared with generic memo if applicable) */
+.pomodoro-memo-container, .memo-widget-container { margin-top: 15px; width: 100%; display: flex; flex-direction: column; flex-grow:1; }
+.pomodoro-memo-header, .memo-widget-header {
+    position: relative;
+    padding: 0 8px 0 0;
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 32px;
+}
+.pomodoro-memo-edit-button, .memo-widget-edit-button {
+    position: static;
+    margin: 0;
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
+    max-width: 32px;
+    max-height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: var(--background-secondary);
+    color: var(--text-muted);
+    transition: background 0.18s, color 0.18s;
+    padding: 0;
+    font-size: 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    cursor: pointer;
+}
+.pomodoro-memo-edit-button:hover, .memo-widget-edit-button:hover,
+.pomodoro-memo-edit-button:focus, .memo-widget-edit-button:focus {
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+}
+.pomodoro-memo-edit-button .svg-icon, .memo-widget-edit-button .svg-icon {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    display: block;
+}
+.pomodoro-timer-widget.has-background-image .pomodoro-memo-edit-button .svg-icon { color: #f0f0f0 !important; }
+
+.pomodoro-memo-display, .memo-widget-display {
+    width: 100%;
+    overflow-y: auto;
+    padding: 8px 10px;
+    background-color: var(--background-secondary-alt);
+    border-radius: var(--radius-s);
+    border: 1px solid var(--background-modifier-border);
+    font-size: var(--font-text-size);
+    line-height: var(--line-height-normal);
+    margin-bottom: 8px;
+    flex-grow: 1;
+}
+.pomodoro-memo-display p:first-child, .memo-widget-display p:first-child { margin-top: 0; }
+.pomodoro-memo-display p:last-child, .memo-widget-display p:last-child { margin-bottom: 0; }
+
+.pomodoro-memo-edit-container, .memo-widget-edit-container { display: flex; flex-direction: column; flex-grow:1;} /* Initially hidden by JS */
+.pomodoro-memo-edit-area, textarea.memo-widget-edit-area {
+    width: 100%;
+    min-height: 80px;
+    max-height: 150px;
+    resize: vertical;
+    margin-bottom: 8px;
+    font-family: var(--font-text);
+    line-height: var(--line-height-normal);
+    font-size: var(--font-text-size);
+    padding: 8px;
+    border: 1px solid var(--background-modifier-border);
+    background-color: var(--background-primary);
+    color: var(--text-normal);
+    border-radius: var(--radius-s);
+    flex-grow: 1;
+    box-sizing: border-box;
+}
+.pomodoro-memo-edit-controls, .memo-widget-edit-controls { display: flex; gap: 8px; justify-content: flex-end; flex-shrink:0; }
+.pomodoro-memo-edit-controls button, .memo-widget-edit-controls button { font-size: var(--font-ui-small); padding: 5px 10px; }
+
+/* Pomodoro Memo on Background Image */
+.pomodoro-timer-widget.has-background-image .pomodoro-memo-display { background-color: rgba(30,30,30,0.7); color: #dadada; border-color: rgba(180,180,180,0.3); }
+.pomodoro-timer-widget.has-background-image .pomodoro-memo-edit-area { background-color: rgba(40,40,40,0.8); color: #e0e0e0; border-color: rgba(150,150,150,0.4); }
+.pomodoro-timer-widget.has-background-image .pomodoro-memo-edit-controls button { background-color: rgba(70, 70, 70, 0.65) !important; color: #f0f0f0 !important; border: 1px solid rgba(220, 220, 220, 0.4) !important; }
+.pomodoro-timer-widget.has-background-image .pomodoro-memo-edit-controls button:hover { background-color: rgba(90, 90, 90, 0.75) !important; }
+
+/* Memo Widget General Styles */
+.memo-widget .widget-content { justify-content: flex-start; padding: 0; display: flex; flex-direction: column; }
+.memo-widget-display { border-top: none; margin-top: 0; background-color: transparent; }
+
+
+/* Calendar Widget Styles */
+.calendar-widget .widget-content.calendar-flex-content { padding: 8px; align-items: stretch; justify-content: flex-start; }
+.calendar-header { display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 8px; }
+.calendar-header button { background: none; border: 1px solid var(--background-modifier-border); border-radius: var(--radius-s); cursor: pointer; padding: 2px 8px; color: var(--text-muted); }
+.calendar-header button:hover { background-color: var(--background-modifier-hover); color: var(--text-normal); } .calendar-header button .svg-icon { width: 1em; height: 1em; }
+.calendar-month-year { font-weight: bold; font-size: var(--font-ui-bigger); color: var(--text-normal); }
+.calendar-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.calendar-table th, .calendar-table td { text-align: center; padding: 0; line-height: 28px; height: 28px; font-size: var(--font-ui-small); border: 1px solid var(--background-modifier-border-hover); }
+.calendar-table th { font-weight: 500; color: var(--text-muted); }
+.calendar-other-month { color: var(--text-faint); }
+.calendar-today { background-color: var(--interactive-accent); color: var(--text-on-accent) !important; font-weight: bold; }
+.calendar-widget.has-background-image .calendar-month-year, .calendar-widget.has-background-image .calendar-table th, .calendar-widget.has-background-image .calendar-table td { color: #f0f0f0 !important; text-shadow: 0 0 2px black; }
+.calendar-widget.has-background-image .calendar-today { background-color: var(--interactive-accent-hover) !important; color: var(--text-on-accent) !important; }
+.calendar-widget.has-background-image .calendar-header button { border-color: rgba(200,200,200,0.5); color: #f0f0f0 !important; }
+.calendar-widget.has-background-image .calendar-header button .svg-icon { color: #f0f0f0 !important; }
+
+
+
+/* Settings Tab Styles */
+.widget-add-buttons { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+/* Add-button specific setting item styling */
+.widget-add-button-setting-item.setting-item { border: none !important; padding: 0 !important; margin:0 !important; } /* setting-itemクラスも持つ場合 */
+.widget-add-button-setting-item .setting-item-control button { margin: 0 !important; }
+
+.widget-setting-container.setting-item .setting-item-control .clickable-icon { /* Reorder & Delete buttons */
+    margin-left: 5px;
+    padding: var(--size-4-1); 
+}
+.pomodoro-setting-item .setting-item-info { width: auto; flex-grow:1; } /* Generic class for settings items */
+.pomodoro-setting-item .setting-item-control input[type="number"] { width: 70px; text-align: right; padding-right: 5px;}
+.pomodoro-setting-item .setting-item-control input[type="text"],
+.pomodoro-setting-item .setting-item-control input[type="url"] { width: 100%;}
+.pomodoro-setting-item .setting-item-control textarea { width: 100%; min-height: 80px; resize: vertical; }
+.widget-settings-list .setting-item { flex-wrap: wrap; border-top: 1px solid var(--divider-color); padding-top: 10px; margin-top: 10px; }
+.widget-settings-list .setting-item:first-child { border-top: none; margin-top: 0; padding-top: 0; }
+.widget-settings-list .setting-item-control { flex-grow: 1; margin-left: 10px; }
+.widget-setting-container.setting-item { display: block; } /* Ensure each widget's settings block takes full width */
+
+/* メモウィジェットのレイアウト・高さ制御 */
+.widget-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.memo-widget-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.memo-widget-header {
+    flex-shrink: 0;
+}
+
+.memo-widget-display {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 5px;
+}
+
+.memo-widget-edit-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 2px;
+}
+
+.memo-edit-area {
+    flex-grow: 1;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    padding: 3px;
+    outline: none;
+    resize: none;
+}
+
+.memo-widget-edit-controls {
+    flex-shrink: 0;
+}
+
+/* 最近編集したノートウィジェット */
+.recent-notes-widget .widget-content {
+    padding: 10px 0;
+}
+.recent-notes-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.recent-note-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+    font-size: 15px;
+}
+.recent-note-item a {
+    color: var(--text-accent);
+    text-decoration: underline;
+    margin-right: 8px;
+    cursor: pointer;
+}
+.recent-note-item a:hover {
+    color: var(--text-accent-hover);
+}
+.recent-note-date {
+    color: var(--text-faint);
+    font-size: 12px;
+}
+
+/* テーマ切り替えウィジェット */
+.theme-switcher-widget .widget-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+}
+.theme-switcher-current {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+.theme-switcher-select {
+    font-size: 15px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--background-modifier-border);
+    background: var(--background-secondary);
+    color: var(--text-normal);
+}
+.theme-switcher-apply {
+    font-size: 14px;
+    padding: 4px 14px;
+    border-radius: 4px;
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.theme-switcher-apply:hover {
+    background: var(--interactive-accent-hover);
+}
+
+.theme-switcher-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.theme-switcher-item {
+    padding: 7px 12px;
+    margin-bottom: 4px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    color: var(--text-normal);
+    background: var(--background-secondary);
+    transition: background 0.15s, color 0.15s;
+}
+.theme-switcher-item:hover {
+    background: var(--interactive-accent-hover);
+    color: var(--text-on-accent);
+}
+.theme-switcher-item.active {
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+    font-weight: bold;
+}
+
+.wb-accordion {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 6px;
+  margin-bottom: 18px;
+  background: var(--background-secondary-alt);
+  overflow: hidden;
+}
+.wb-accordion-header {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px 16px;
+  font-weight: bold;
+  user-select: none;
+  background: var(--background-secondary);
+  border-bottom: 1px solid var(--background-modifier-border);
+  transition: background 0.2s;
+}
+.wb-accordion-header:hover {
+  background: var(--background-modifier-hover);
+}
+.wb-accordion-header .wb-accordion-icon {
+  margin-right: 10px;
+  transition: transform 0.2s;
+  font-size: 1.1em;
+  width: 1em;
+  height: 1em;
+}
+.wb-accordion-header.wb-accordion-open .wb-accordion-icon {
+  transform: rotate(90deg);
+}
+.wb-accordion-body {
+  padding: 12px 18px 12px 32px;
+  display: none;
+  background: var(--background-secondary-alt);
+}
+.wb-accordion.wb-accordion-open .wb-accordion-body {
+  display: block;
+  animation: wb-accordion-fadein 0.2s;
+}
+@keyframes wb-accordion-fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* スライダーの横線（トラック）を明示的に表示 */
+.setting-item-control input[type="range"]::-webkit-slider-runnable-track {
+  height: 4px;
+  background: var(--divider-color, #888);
+  border-radius: 2px;
+}
+.setting-item-control input[type="range"]::-moz-range-track {
+  height: 4px;
+  background: var(--divider-color, #888);
+  border-radius: 2px;
+}
+.setting-item-control input[type="range"]::-ms-fill-lower,
+.setting-item-control input[type="range"]::-ms-fill-upper {
+  height: 4px;
+  background: var(--divider-color, #888);
+  border-radius: 2px;
+}
+
+.wb-panel-resize-handle-right,
+.wb-panel-resize-handle-left {
+  position: absolute;
+  top: 0;
+  width: 8px;
+  height: 100%;
+  cursor: ew-resize;
+  z-index: 10;
+  background: transparent;
+}
+.wb-panel-resize-handle-right {
+  right: 0;
+}
+.wb-panel-resize-handle-left {
+  left: 0;
+}
+.widget-board-panel-custom:not(.custom-width-right):not(.custom-width-left):not(.custom-width-center) .wb-panel-resize-handle-left,
+.widget-board-panel-custom:not(.custom-width-right):not(.custom-width-left):not(.custom-width-center) .wb-panel-resize-handle-right {
+  display: none;
+}
+
+.widget-board-panel-custom.no-transition {
+  transition: none !important;
+}
+
+.wb-mode-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+.wb-mode-group-label {
+  margin-right: 8px;
+  font-weight: bold;
+  min-width: 70px;
+  margin-top: 0;
+  display: inline-block;
+}
+.wb-mode-group-gap {
+  display: inline-block;
+  width: 16px;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 600px) {
+  .wb-panel-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .wb-settings-panel {
+    padding: 8px;
+  }
+  .wb-widget-container.is-editing {
+    padding: 4px;
+  }
+}
+
+/* --- Accessibility: Focus Styles --- */
+.wb-panel-settings-toggle:focus,
+.wb-widget-delete-btn:focus {
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: 2px;
+}
+
+/* --- Animation Enhancements --- */
+.wb-widget-edit-wrapper {
+  transition: border-color 0.2s, background 0.2s;
+}
+.wb-widget-edit-wrapper.is-dragging {
+  transition: opacity 0.2s, background 0.2s;
+}
+
+/* --- Settings Panel Scroll --- */
+.wb-settings-panel {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+/* --- Add Widget Button Hover --- */
+.wb-add-widget-btn:hover {
+  background-color: var(--background-modifier-hover);
+  color: var(--text-normal);
+}
+
+/* --- Drag Handle Hover --- */
+.wb-widget-drag-handle:hover {
+  color: var(--interactive-accent);
+}
+
+/* --- UI全体のモダン化・統一感強化 --- */
+.widget, .wb-settings-panel, .wb-widget-container {
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  background: var(--background-secondary, #232323);
+  border: 1.5px solid var(--background-modifier-border, #444);
+  margin-bottom: 28px;
+  padding: 20px 20px 16px 20px;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+button, .wb-add-widget-btn, .wb-panel-settings-toggle {
+  border-radius: 8px;
+  padding: 0 14px;
+  min-height: 21px;
+  font-size: 15px;
+  background: var(--interactive-normal);
+  color: var(--text-on-accent);
+  border: none;
+  transition: background 0.18s, color 0.18s;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  cursor: pointer;
+}
+button:hover, .wb-add-widget-btn:hover, .wb-panel-settings-toggle:hover {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+
+.wb-panel-header h3, .wb-settings-panel-header h4 {
+  font-size: 1.15em;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  color: var(--text-normal);
+  letter-spacing: 0.01em;
+}
+
+.wb-settings-panel, .wb-widget-container {
+  margin-bottom: 24px;
+}
+.widget {
+  margin-bottom: 24px;
+}
+
+.wb-widget-drag-handle, .wb-widget-delete-btn {
+  border-radius: 8px;
+  background: var(--background-secondary);
+  color: var(--text-muted);
+  transition: background 0.18s, color 0.18s;
+}
+.wb-widget-drag-handle:hover, .wb-widget-delete-btn:hover {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+
+/* --- 設定アコーディオンのコンパクト化 --- */
+.wb-settings-accordion-header {
+  font-size: 15px;
+  font-weight: 500;
+  padding: 4px 0 4px 4px;
+  border-bottom: 1px solid var(--divider-color);
+}
+.wb-settings-accordion-icon {
+  font-size: 1em;
+  margin-right: 4px;
+  width: 1em;
+  height: 1em;
+}
+.wb-settings-accordion-body {
+  padding: 8px 0 0 0;
+}
+
+.wb-settings-panel-header h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.wb-panel-header h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 2px 0;
+  padding: 0;
+}
+
+.wb-mode-group-label {
+  font-size: 13px;
+  min-width: 60px;
+  margin-right: 6px;
+}
+
+.wb-mode-group button {
+  font-size: 13px;
+  padding: 4px 10px;
+  margin-bottom: 4px;
+}
+
+.wb-mode-group button.active {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  font-weight: bold;
+  border: 2px solid var(--interactive-accent-hover);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+
+.wb-settings-panel, .wb-widget-container {
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.widget, .wb-settings-panel, .wb-widget-container {
+  box-shadow: 0 1px 6px rgba(0,0,0,0.10);
+}
+
+/* --- ウィジェット編集モード時の削除ボタン配置 --- */
+.wb-widget-edit-wrapper {
+  position: relative;
+}
+
+.wb-widget-delete-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 100;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  font-size: 20px;
+  line-height: 32px;
+  text-align: center;
+  background: var(--background-secondary);
+  color: var(--text-muted);
+  border: none;
+  border-radius: 50%;
+  opacity: 0.85;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  transition: background 0.18s, color 0.18s, opacity 0.18s;
+  cursor: pointer;
+}
+.wb-widget-edit-wrapper:hover .wb-widget-delete-btn,
+.wb-widget-delete-btn:focus {
+  opacity: 1;
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+
+/* --- メモ欄の視認性向上 --- */
+.memo-widget-display, .pomodoro-memo-display {
+  background: var(--background-secondary-alt, #232323);
+  border: 1.5px solid var(--background-modifier-border, #444);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 8px 0 0 0;
+  font-size: 1.05em;
+  color: var(--text-normal);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.memo-widget-display:focus-within, .pomodoro-memo-display:focus-within {
+  border-color: var(--interactive-accent, #6cf);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+/* --- ウィジェット間の余白を統一 --- */
+.wb-widget-container {
+  gap: 28px;
+  padding: 20px 12px;
+  background: var(--background-primary, #181818);
+}
+
+/* --- レスポンシブ調整 --- */
+@media (max-width: 900px) {
+  .widget, .wb-settings-panel, .wb-widget-container {
+    padding: 12px 4px 10px 4px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+  }
+  .wb-widget-container {
+    gap: 16px;
+    padding: 8px 2px;
+  }
+}
+
+body.wb-modal-open .workspace-leaf-resize-handle {
+  display: none !important;
+}
+
+/* --- メモウィジェット編集エリアのリサイズハンドル強制表示 --- */
+.memo-widget-edit-area {
+    resize: vertical !important;
+    max-height: 600px !important;
+    min-height: 80px;
+}
+
+.memo-widget-edit-container, .memo-widget-container {
+    overflow: visible !important;
+}
+
+/* FileViewWidgetのMarkdownテーブル用スタイル */
+.file-view-widget .file-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0;
+}
+.file-view-widget .file-content th,
+.file-view-widget .file-content td {
+  border: 1px solid var(--background-modifier-border, #444);
+  padding: 4px 8px;
+  text-align: left;
+}
+.file-view-widget .file-content th {
+  background: var(--background-secondary-alt, #222);
+}
+
+/* --- tweet-widget main Twitter風 --- */
+.tweet-post-box {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1.5px solid var(--background-modifier-border, #444);
+  margin-bottom: 12px;
+}
+.tweet-avatar-large img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.tweet-input-area-main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.tweet-textarea-main {
+  width: 100%;
+  min-height: 48px;
+  background: transparent;
+  border: none;
+  color: var(--text-normal);
+  font-size: 1.15em;
+  resize: vertical;
+  outline: none;
+  padding: 8px 0;
+}
+.tweet-textarea-main::placeholder {
+  color: var(--text-faint);
+  font-size: 1.1em;
+}
+.tweet-icon-bar {
+  display: flex;
+  gap: 8px;
+  margin-top: 2px;
+}
+.tweet-icon-btn-main {
+  background: none;
+  border: none;
+  color: #A68AF9;
+  font-size: 1.35em;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 4px 8px;
+  transition: background 0.15s, color 0.15s;
+  display: flex;
+  align-items: center;
+}
+.tweet-icon-btn-main:hover {
+  background: var(--background-modifier-hover);
+  color: #A68AF9;
+}
+.tweet-file-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 4px 0 0 0;
+}
+.tweet-file-image-main {
+  max-width: 320px;
+  max-height: 200px;
+  border-radius: 12px;
+  border: 1px solid var(--background-modifier-border, #444);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+.tweet-file-link-main {
+  color: var(--text-accent);
+  text-decoration: underline;
+  font-size: 0.98em;
+  background: var(--background-secondary);
+  border-radius: 4px;
+  padding: 2px 6px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  display: inline-block;
+}
+.tweet-bottom-bar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  margin-top: 2px;
+}
+.tweet-char-count-main {
+  color: var(--text-faint);
+  font-size: 0.95em;
+  margin-right: 8px;
+}
+.tweet-post-btn-main {
+  background: var(--background-modifier-border, #444);
+  color: var(--text-normal);
+  border: none;
+  border-radius: 999px;
+  padding: 6px 18px;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.tweet-post-btn-main:hover {
+  background: #A68AF9;
+  color: #fff;
+}
+.tweet-list-main {
+  margin: 0;
+  padding: 0;
+}
+.tweet-item-main {
+  background: var(--background-secondary, #23272e);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  border: 1px solid var(--divider-color, #444);
+  padding: 18px 20px 12px 20px;
+  margin: 0;
+  transition: box-shadow 0.2s, border 0.2s;
+  position: relative;
+}
+.tweet-item-main:hover {
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  border-color: var(--interactive-accent, #A68AF9);
+}
+.tweet-item-header-main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 2px;
+}
+.tweet-item-avatar-main img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.tweet-item-userinfo-main {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1em;
+}
+.tweet-item-username-main {
+  font-weight: bold;
+  color: var(--text-normal);
+  margin-right: 4px;
+}
+.tweet-item-time-main {
+  color: var(--text-faint);
+  font-size: 0.97em;
+}
+.tweet-item-text-main {
+  font-size: 1.13em;
+  margin: 2px 0 0 0;
+  word-break: break-all;
+  color: var(--text-normal);
+}
+.tweet-item-files-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+.tweet-item-image-main {
+  max-width: 320px;
+  max-height: 200px;
+  border-radius: 12px;
+  border: 1px solid var(--background-modifier-border, #444);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  display: block;
+  margin: 0 auto;
+}
+.tweet-item-link-main {
+  color: var(--text-accent);
+  text-decoration: underline;
+  font-size: 0.98em;
+  background: var(--background-secondary);
+  border-radius: 4px;
+  padding: 2px 6px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  display: inline-block;
+}
+.tweet-action-bar-main {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+  align-items: center;
+}
+.tweet-action-btn-main {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 1.15em;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 4px 8px;
+  transition: background 0.15s, color 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.tweet-action-btn-main:hover {
+  background: var(--background-modifier-hover);
+  color: #A68AF9;
+}
+.tweet-action-count-main {
+  font-size: 0.98em;
+  margin-left: 2px;
+  color: var(--text-faint);
+}
+.tweet-item-badge-main {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 2px;
+  margin-right: 2px;
+  font-size: 1.1em;
+}
+.tweet-item-userid-main {
+  color: var(--text-faint);
+  font-size: 0.97em;
+  margin-left: 4px;
+}
+.tweet-emoji-picker-main {
+  z-index: 9999;
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border, #444);
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  max-width: 320px;
+  max-height: 180px;
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+/* --- tweet-widget 詳細表示 --- */
+.tweet-detail-back-btn {
+  display: block;
+  margin: 24px auto 16px auto;
+  padding: 10px 36px;
+  font-size: 1.1em;
+  background: #23272e;
+  color: #fff;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  transition: background 0.18s, color 0.18s;
+}
+.tweet-detail-back-btn:hover {
+  background: #A68AF9;
+  color: #fff;
+}
+.tweet-detail-section-sep {
+  height: 1.5px;
+  background: var(--background-modifier-border, #444);
+  margin: 18px 0;
+  border-radius: 1px;
+}
+.tweet-detail-parent {
+  background: #23272e;
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin: 0 0 16px 0;
+  opacity: 0.85;
+  font-size: 0.97em;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  border: 1px solid var(--background-modifier-border, #444);
+}
+.tweet-detail-main {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 0 24px 0;
+}
+.tweet-detail-reply {
+  margin-left: 0;
+  padding: 0 !important;
+  position: relative;
+}
+.tweet-thread-reply-wrapper {
+  margin-left: 0;
+  margin-bottom: 18px;
+  position: relative;
+}
+.tweet-thread-reply-line {
+  display: none;
+}
+
+/* --- tweet-widget 詳細表示ヘッダー --- */
+.tweet-detail-header {
+  display: flex;
+  align-items: center;
+  background: var(--background-secondary, #232323);
+  padding: 0 0 0 8px;
+  height: 44px;
+  border-bottom: 1px solid var(--background-modifier-border, #444);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.tweet-detail-header-back {
+  background: none;
+  border: none;
+  color: var(--text-normal);
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-right: 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+.tweet-detail-header-back:hover {
+  background: var(--background-modifier-hover);
+}
+.tweet-detail-header-title {
+  color: var(--text-normal);
+  font-size: 1em;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.tweet-detail-section-sep {
+  height: 1px;
+  background: var(--background-modifier-border, #444);
+  margin: 12px 0;
+  border-radius: 1px;
+}
+.tweet-detail-parent, .tweet-detail-main, .tweet-detail-reply {
+  background: var(--background-secondary, #232323);
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin: 0 0 10px 0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  border: 1px solid var(--background-modifier-border, #444);
+}
+.tweet-detail-main {
+  font-size: 1.05em;
+  margin-bottom: 16px;
+}
+.tweet-detail-reply {
+  transition: background 0.15s;
+}
+.tweet-detail-reply:hover {
+  background: var(--background-modifier-hover);
+}
+.tweet-detail-no-reply {
+  color: #888;
+  text-align: center;
+  margin: 16px 0;
+  font-size: 0.98em;
+}
+.tweet-action-bar-main {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: flex-start;
+}
+.tweet-action-btn-main {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 1.08em;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 4px 10px;
+  transition: background 0.15s, color 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.tweet-action-btn-main:hover {
+  background: var(--background-modifier-hover);
+  color: #A68AF9;
+}
+.tweet-action-count-main {
+  font-size: 0.98em;
+  margin-left: 2px;
+  color: var(--text-faint);
+}
+
+/* --- tweet-widget アバターモーダル --- */
+.tweet-avatar-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.55);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tweet-avatar-modal-content {
+  background: transparent;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tweet-avatar-modal-content img {
+  width: 320px;
+  height: 320px;
+  max-width: 320px;
+  max-height: 320px;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+  background: #fff;
+  display: block;
+}
+.tweet-avatar-modal-content button {
+  margin-top: 12px;
+  font-size: 1.5em;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.tweet-thread-wrapper {
+  margin-bottom: 20px;
+  /* カード間の余白 */
+}
+
+.tweet-reacted-users-main {
+  margin-top: 14px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--background-modifier-border, #444);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+.tweet-reacted-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 12px;
+}
+.tweet-reacted-label {
+  font-size: 0.98em;
+  color: var(--text-faint);
+  margin-bottom: 0;
+  margin-left: 2px;
+  flex: 1 1 auto;
+}
+.tweet-reacted-avatars {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0;
+  position: relative;
+  min-width: 0;
+}
+.tweet-reacted-avatar-img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid var(--background-modifier-border, #444);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.10);
+  background: #222;
+  margin-left: -10px;
+  transition: box-shadow 0.18s, border-color 0.18s;
+}
+.tweet-reacted-avatar-img:first-child {
+  margin-left: 0;
+}
+.tweet-reacted-avatar-more {
+  width: 28px;
+  height: 24px;
+  border-radius: 12px;
+  background: var(--background-secondary, #23272e);
+  color: var(--text-faint);
+  font-size: 0.98em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -10px;
+  border: 1.5px solid var(--background-modifier-border, #444);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.10);
+  font-weight: bold;
+  z-index: 1;
+}
+
+.tweet-notification-list {
+  background: var(--background-secondary, #23272e);
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  border: 1px solid var(--divider-color, #444);
+  margin-bottom: 18px;
+  padding: 10px 18px 8px 18px;
+}
+.tweet-notification-title {
+  font-size: 1.08em;
+  font-weight: bold;
+  color: var(--text-accent, #A68AF9);
+  margin-bottom: 8px;
+}
+.tweet-notification-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 18px 20px 14px 20px;
+  border-radius: 16px;
+  background: var(--background-secondary, #23272e);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  border: 1px solid var(--divider-color, #444);
+  margin-bottom: 24px;
+  transition: box-shadow 0.18s, border-color 0.18s, background 0.18s;
+  cursor: pointer;
+  position: relative;
+  min-width: 0;
+}
+.tweet-notification-item:last-child {
+  margin-bottom: 0;
+}
+.tweet-notification-item:hover {
+  background: var(--background-modifier-hover, #232b3a);
+  box-shadow: 0 4px 24px rgba(80,120,255,0.18);
+  border-color: var(--text-accent, #7a8cff);
+}
+.tweet-notification-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+.tweet-notification-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid var(--background-modifier-border, #444);
+  background: #222;
+  margin-right: 8px;
+}
+.tweet-notification-titleline {
+  font-weight: bold;
+  color: var(--text-accent, #A68AF9);
+  font-size: 1.08em;
+  margin-bottom: 2px;
+}
+.tweet-notification-contentline {
+  color: var(--text-normal);
+  font-size: 1.08em;
+  margin-left: 44px;
+  margin-top: 2px;
+  word-break: break-all;
+}
+
+.tweet-tab-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 18px;
+  border-bottom: 1.5px solid var(--background-modifier-border, #444);
+  background: transparent;
+}
+.tweet-tab-btn {
+  flex: 1 1 0;
+  background: none;
+  border: none;
+  color: var(--text-faint);
+  font-size: 1.08em;
+  font-weight: bold;
+  padding: 12px 0 10px 0;
+  cursor: pointer;
+  border-bottom: 2.5px solid transparent;
+  transition: color 0.18s, border-color 0.18s, background 0.18s;
+  outline: none;
+}
+.tweet-tab-btn.active {
+  color: var(--text-accent, #A68AF9);
+  border-bottom: 2.5px solid var(--text-accent, #A68AF9);
+  background: var(--background-secondary, #23272e);
+}
+
+.tweet-thread-reply-wrapper {
+  position: relative;
+  margin-left: 32px;
+  margin-bottom: 18px;
+}
+.tweet-thread-reply-line {
+  position: absolute;
+  left: -18px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--background-modifier-border, #444);
+  border-radius: 1px;
+  z-index: 0;
+}
+.tweet-detail-reply {
+  margin-left: 32px;
+  position: relative;
+}
+.tweet-detail-reply:first-child {
+  margin-top: 0;
+}
+
+.tweet-detail-reply-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 18px 0 18px 0;
+  margin-bottom: 18px;
+  border-bottom: 1.5px solid var(--background-modifier-border, #444);
+}
+.tweet-detail-reply-avatar img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.tweet-detail-reply-input {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+.tweet-detail-reply-textarea {
+  width: 100%;
+  min-height: 48px;
+  background: transparent;
+  border: none;
+  color: var(--text-normal);
+  font-size: 1.15em;
+  resize: vertical;
+  outline: none;
+  padding: 8px 0;
+}
+.tweet-detail-reply-textarea::placeholder {
+  color: var(--text-faint);
+  font-size: 1.1em;
+}
+.tweet-detail-reply-btn {
+  background: var(--background-modifier-border, #444);
+  color: var(--text-normal);
+  border: none;
+  border-radius: 999px;
+  padding: 6px 18px;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-left: 8px;
+}
+.tweet-detail-reply-btn:hover {
+  background: #A68AF9;
+  color: #fff;
+}
+.tweet-detail-reply {
+  background: var(--background-secondary, #23272e);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  border: 1px solid var(--divider-color, #444);
+  padding: 18px 20px 12px 20px;
+  margin: 0 0 24px 0;
+  transition: box-shadow 0.2s, border 0.2s;
+  position: relative;
+}
+.tweet-detail-reply:last-child {
+  margin-bottom: 0;
+}
+.tweet-detail-reply:hover {
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  border-color: var(--interactive-accent, #A68AF9);
+}
+
+/* --- tweet-widget アバターモーダル --- */
+.tweet-reply-modal-backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 99999 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tweet-reply-modal {
+  position: absolute !important;
+  min-width: 540px;
+  max-width: 98vw;
+  width: 700px;
+  max-height: 92vh;
+  background: var(--background-secondary, #23272e);
+  border-radius: 20px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.22);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 100000 !important;
+  padding: 0 0 18px 0;
+}
+.tweet-reply-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 22px 8px 22px;
+  border-bottom: 1px solid var(--background-modifier-border, #444);
+  font-size: 1.08em;
+  font-weight: 600;
+  color: var(--text-normal);
+}
+.tweet-reply-modal-close {
+  background: none;
+  border: none;
+  color: var(--text-normal);
+  font-size: 1.3em;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+.tweet-reply-modal-close:hover {
+  background: var(--background-modifier-hover);
+}
+.tweet-reply-modal-tweet {
+  padding: 12px 22px 0 22px;
+  border-bottom: 1px solid var(--background-modifier-border, #444);
+  background: var(--background-secondary, #23272e);
+}
+.tweet-reply-modal-input {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  padding: 18px 22px 0 22px;
+}
+.tweet-reply-modal-textarea {
+  flex: 1;
+  min-height: 48px;
+  background: transparent;
+  border: none;
+  color: var(--text-normal);
+  font-size: 1.15em;
+  resize: vertical;
+  outline: none;
+  padding: 8px 0;
+}
+.tweet-reply-modal-textarea::placeholder {
+  color: var(--text-faint);
+  font-size: 1.1em;
+}
+.tweet-reply-modal-btn {
+  background: var(--background-modifier-border, #444);
+  color: var(--text-normal);
+  border: none;
+  border-radius: 999px;
+  padding: 8px 22px;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-left: 10px;
+}
+.tweet-reply-modal-btn:hover {
+  background: #A68AF9;
+  color: #fff;
+}
+@media (max-width: 800px) {
+  .tweet-reply-modal {
+    min-width: 0;
+    width: 98vw;
+    padding: 0 0 8px 0;
+    left: 50% !important;
+    top: 4vh !important;
+    transform: translate(-50%, 0) !important;
+  }
+  .tweet-reply-modal-header, .tweet-reply-modal-tweet, .tweet-reply-modal-input {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+.tweet-reply-modal-header,
+.tweet-reply-modal-tweet,
+.tweet-reply-modal-input {
+  padding-left: 32px;
+  padding-right: 16px;
+}
+
+.tweet-reply-modal-input {
+  padding-bottom: 12px;
+}
+
+.tweet-action-btn-main.active {
+  color: #8a5cf5;
+  background: var(--background-modifier-hover);
+}
+
+.tweet-input-toggle-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2px;
+}
+.tweet-input-toggle-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  background: var(--background-secondary-alt, #232323);
+  border: none;
+  border-radius: 999px;
+  padding: 4px 32px 4px 12px;
+  font-size: 1em;
+  color: var(--text-normal);
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+  min-width: 64px;
+  outline: none;
+}
+.tweet-input-toggle-btn::after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 16px;
+  background: var(--background-modifier-border, #444);
+  border-radius: 8px;
+  transition: background 0.18s;
+}
+.tweet-input-toggle-btn.preview-mode::after {
+  background: var(--text-accent, #A68AF9);
+}
+.tweet-input-toggle-btn::before {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+  transition: transform 0.18s, background 0.18s;
+}
+.tweet-input-toggle-btn.preview-mode::before {
+  transform: translateX(10px);
+  background: var(--text-accent, #A68AF9);
+}
+
+.tweet-toggle-switch {
+  width: 40px;
+  height: 22px;
+  border: none;
+  border-radius: 11px;
+  background: #888;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.2s;
+  outline: none;
+  padding: 0;
+}
+.tweet-toggle-switch::before {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.2s, background 0.2s;
+}
+.tweet-toggle-switch.on {
+  background: var(--text-accent, #A68AF9);
+}
+.tweet-toggle-switch.on::before {
+  transform: translateX(18px);
+  background: #fff;
+}
+
+/* データビュワー用ヘッダーの左右余白を狭く */
+.tweet-data-viewer-modal .tweet-reply-modal-header {
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+}
+
+/* データビューア専用モーダル */
+.tweet-data-viewer-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1000px;
+  max-width: 98vw;
+  min-width: 600px;
+  height: 600px;
+  max-height: 90vh;
+  z-index: 9999;
+  background: var(--background-primary, #222);
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+.tweet-data-viewer-modal .tweet-data-viewer-main {
+  flex: 1 1 auto;
+  overflow: auto;
+  padding: 8px;
+  height: 100%;
+}
+.tweet-data-viewer-menubar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--background-primary, #222);
+  border-bottom: 1px solid var(--divider-color, #444);
+  min-height: 44px;
+}
+.tweet-data-viewer-csv-btn,
+.tweet-data-viewer-md-btn {
+  margin-right: 6px;
+}
+.tweet-data-viewer-dropdown {
+  right: 8px;
+  left: auto;
+  top: 100%;
+  margin-top: 6px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  padding: 10px 0;
+  background: var(--background-secondary, #23272e);
+  border-radius: 10px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  border: 1.5px solid var(--divider-color, #444);
+  min-width: 140px;
+  z-index: 20000 !important;
+}
+.tweet-data-viewer-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 18px;
+  font-size: 1em;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  z-index: 1;
+}
+.tweet-data-viewer-dropdown-item input[type="checkbox"] {
+  accent-color: var(--text-accent, #A68AF9);
+  width: 1.1em;
+  height: 1.1em;
+}
+.tweet-data-viewer-dropdown-item:hover {
+  background: var(--background-modifier-hover, #444);
+}
+.tweet-data-viewer-main {
+  margin-top: 8px;
+}
+.tweet-data-viewer-hamburger {
+  font-size: 1.4em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 8px;
+}
+.tweet-data-viewer-dropdown {
+  right: 8px;
+  left: auto;
+  top: 100%;
+  margin-top: 6px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  padding: 8px 0;
+  /* 既存のmax-width, max-height, overflow等はそのまま */
+}
+.tweet-data-viewer-dropdown-item {
+  padding: 6px 18px;
+}
+
+/* データビューア テーブル最適化 */
+.tweet-data-viewer-main {
+  overflow-x: auto;
+  padding: 16px 0 0 0;
+}
+.tweet-data-viewer-table {
+  width: 100%;
+  min-width: 900px;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 1em;
+  background: transparent;
+  table-layout: auto;
+}
+.tweet-data-viewer-th, .tweet-data-viewer-td {
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--divider-color, #444);
+  white-space: nowrap;
+  text-align: left;
+}
+.tweet-data-viewer-th {
+  background: var(--background-secondary, #23272e);
+  font-weight: bold;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+.tweet-data-viewer-td.text {
+  white-space: normal;
+  max-width: 420px;
+  word-break: break-all;
+}
+.tweet-data-viewer-td.tags {
+  white-space: normal;
+  max-width: 180px;
+  word-break: break-all;
+}
+.tweet-data-viewer-td.id { max-width: 120px; font-size: 0.93em; color: var(--text-faint); }
+.tweet-data-viewer-td.created { max-width: 110px; font-size: 0.97em; }
+.tweet-data-viewer-td.user { max-width: 120px; }
+.tweet-data-viewer-tr {
+  transition: background 0.13s;
+}
+.tweet-data-viewer-tr:hover {
+  background: var(--background-modifier-hover, #232b3a);
+}
+.tweet-data-viewer-hamburger {
+  font-size: 1.6em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 8px;
+  color: var(--text-normal);
+  padding: 2px 8px;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+}
+.tweet-data-viewer-hamburger:hover {
+  background: var(--background-modifier-hover, #444);
+  color: var(--text-accent, #A68AF9);
+}
+.tweet-data-viewer-dropdown {
+  min-width: 140px;
+  font-size: 1em;
+}
+.tweet-data-viewer-dropdown-item {
+  padding: 6px 16px;
+}
+
+/* TweetWidget フィルタバー・データビューアボタンの見た目統一 */
+.tweet-data-viewer-btn,
+.tweet-period-select,
+.tweet-filter-bar select,
+.tweet-filter-bar button {
+  height: 32px;
+  font-size: 1em;
+  border-radius: 6px;
+  background: var(--interactive-normal);
+  color: var(--text-on-accent);
+  border: none;
+  padding: 0 14px;
+  margin-left: 8px;
+  margin-right: 0;
+  transition: background 0.15s, color 0.15s;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  outline: none;
+}
+.tweet-data-viewer-btn:hover,
+.tweet-period-select:hover,
+.tweet-filter-bar select:hover,
+.tweet-filter-bar button:hover {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+.tweet-filter-bar select,
+.tweet-period-select {
+  min-width: 90px;
+  padding-right: 24px;
+}
+
+.tweet-data-viewer-menugroup {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+}
+.tweet-data-viewer-dropdown {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  right: auto;
+  margin-top: 6px;
+  margin-right: 0;
+  margin-bottom: 0;
+  /* 既存のmax-width, max-height, padding, shadow, border, background等はそのまま */
+}
+
+:not(.tweet-widget) iframe[src*="youtu"] {
+    display: block;
+    width: 100%;
+    height: 400px;
+    border-radius: 10px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* YouTubeサジェスト用ポップアップスタイル */
+.tweet-input-area-main, .tweet-reply-modal-input {
+  position: relative;
+}
+.tweet-youtube-suggest {
+  background: #222;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  margin-top: 4px;
+  font-size: 0.95em;
+  cursor: pointer;
+  white-space: nowrap;
+  max-width: 350px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background 0.15s;
+  display: none;
+}
+.tweet-youtube-suggest[style*="display: block"],
+.tweet-youtube-suggest[style*="display: "],
+.tweet-youtube-suggest[style*="display: "] {
+  display: block !important;
+}
+.tweet-youtube-suggest:hover {
+  background: #444;
+}
+
+/* サジェストが隠れないようにする */
+.tweet-post-box,
+.widget,
+.tweet-input-area-main,
+.tweet-reply-modal-input {
+  overflow: visible !important;
+}
+.tweet-youtube-suggest {
+  z-index: 99999 !important;
+}
+
+/* サジェスト中身が空のときは高さ0に */
+.tweet-youtube-suggest:empty {
+  height: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* @サジェスト用リストUI */
+.tweet-suggest-list {
+  background: #222;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  margin-top: 4px;
+  font-size: 0.95em;
+  padding: 4px 0;
+  min-width: 120px;
+  max-width: 350px;
+  position: absolute;
+  z-index: 1000;
+}
+.tweet-suggest-item {
+  padding: 6px 16px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.tweet-suggest-item:hover, .tweet-suggest-item.active {
+  background: #444;
+}
+.tweet-suggest-item.active {
+  background: #A68AF9 !important;
+  color: #fff !important;
+  font-weight: bold;
+}
+
+/* --- reflow最適化: CSS Containment --- */
+.widget-content,
+.memo-widget-container,
+.tweet-list-main,
+.wb-widget-container {
+  contain: layout style paint;
+}
+
+/* --- reflow最適化: containment追加 --- */
+.tweet-data-viewer-table,
+.recent-notes-list,
+.recent-notes-virtual-wrapper {
+  contain: layout style paint;
+}
