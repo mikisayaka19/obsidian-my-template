@@ -64,7 +64,7 @@ CreatedDate: 2025-06-07
 | obsidian-paste-image-rename    | Tier2     | 有効    | 画像を貼り付けると、その画像ファイル名を、ノート名-YYYYMMDDhhmmssにする                                            | デフォルトだと、`Paste image YYYMMDDhhmmss.png`。<br>R2アップロード後、URL参照時に、半角空白の扱いが面倒なので、有効にする       |
 | obsidian-hotkeys-for-templates | Tier3     | 有効    | テンプレートをホットキーで適用できる。特に、通常ノートは一度生成した後に、<br>Alt + Nでショートカット上書き適用させているので必要（Quickaddじゃできない） | Alt + N で通常ノートテンプレートを適用（Alt + Nショートカットのためだけに使っている）                                      |
 | obsidian-style-settings        | Tier3     | 有効    | CSS を触らず GUI でテーマをチューニングする                                                             | あまり使ってない                                                                                |
-| copilot                        | Tier3     | 無効    | obsidain内で生成AIとチャットできる。vault内のファイルを読みだす                                                | APIで登録。そのため、無料のgemini api しか使えないので、一旦保留                                                 |
+
 
 ## 6. 画像ファイルについて
 - 原則、[[Mermaid記法]]や[[Excalidraw]]で描けるものは描く
