@@ -37,10 +37,7 @@ CreatedDate: 2025-02-09
 - 👉**Ctrl + ↑**： 最近のファイルとルールboardを中央の開く
 - 👉**Ctrl + →**： 全てのwidge-boardを開く
 - 👉**Ctrl + ↓**： 全てのwidge-boardを閉じる
-## Git
-- 👉**Ctrl + Shift + C**：Git: Commit all changes
-- 👉**Ctrl + Shift + P**：Git: Pull
-- 👉**Ctrl + Shift + S**：Git: Push
+
 
 
 
